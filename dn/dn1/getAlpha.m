@@ -16,7 +16,7 @@ function alpha_ = getAlpha(x, to_zero_m)
   a;
   su = 0;
   for m = 0:10
-    su += a(m+1) * bes(2*m+1);
+    su = su + a(m+1) * bes(2*m+1);
   end
   alpha_ = su;
 end

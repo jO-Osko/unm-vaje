@@ -33,7 +33,7 @@ function xx = getX(pol, limit, start_pos, eps)
       xx = fzero(@(x_t) (su - limit + diff(polyval(polyint(pol), [zer(i) x_t])) * sig(i)), [zer(i) zer(i+1)]);
       return
     end
-    su += part;
+    su = su + part;
   end
   [zer(end) zer(end)+10000];
   xx = fzero(@(x_t) (su - limit + diff(polyval(polyint(pol), [zer(end) x_t])) * sig(end)), [zer(end) zer(end)+1000]);
