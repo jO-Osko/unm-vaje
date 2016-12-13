@@ -11,6 +11,4 @@ function has = hasLru(matrix, eps)
   end
 end
 
-#usage
-hasLru(C)
-hasLru(D)
+% usage

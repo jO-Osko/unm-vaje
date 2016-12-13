@@ -6,16 +6,15 @@ function alpha_ = getAlpha(x, to_zero_m)
     to_zero_m = 10;
   end
   prev = 1/2 * sqrt(2*pi/x);
-  a = [prev];
+  a = prev;
   for m = 1:to_zero_m
-    next = ((2*m-1)*(4*m+1)/(2*m*(4*m-3))) * prev;
+    next = (((2*m-1)*(4*m+1))/(2*m*(4*m-3))) * prev;
     a = [a next];
     prev = next;
   end
   bes = Ifun(x, 20, 1);
-  a;
   su = 0;
-  for m = 0:10
+  for m = 0:to_zero_m
     su = su + a(m+1) * bes(2*m+1);
   end
   alpha_ = su;

@@ -5,7 +5,7 @@ function bessel = Bessel(x, to_n, alpha, final, semi_final)
   if nargin < 2
     to_n = 20;
   end
-  if nargin < 3 | alpha == 0
+  if nargin < 3 || alpha == 0
     alpha = getAlpha();
   end
   if nargin < 4
@@ -20,7 +20,7 @@ function bessel = Bessel(x, to_n, alpha, final, semi_final)
     final = semi_final;
     semi_final = next;
     bessel = [bessel next];
-  endfor
+  end
   bessel = fliplr(bessel)./alpha;
 end
 
@@ -28,11 +28,11 @@ end
 
 %usage
 
-x = 0.1;
+% x = 0.1;
 
-bes = Bessel(x);
-for alp = 0:5
-  bes_orig = besselj(alp + 0.5, x);
-  abs(bes(alp + 1) - bes_orig)  
-end  
+% bes = Bessel(x);
+% for alp = 0:5
+%  bes_orig = besselj(alp + 0.5, x);
+%  abs(bes(alp + 1) - bes_orig)  
+% end  
  

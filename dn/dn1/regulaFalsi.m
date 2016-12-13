@@ -11,11 +11,11 @@ function x = regulaFalsi(f, a, b, eps, limit)
   
   step = 0;
   epsilon = eps * abs(b-a)
-  while abs(b-a) > epsilon & step < limit
+  while abs(b-a) > epsilon && step < limit
     step = step + 1;
     k = (fb-fa)/(b-a);
     n = fa - k*a;
-    c = -n/k
+    c = -n/k;
     %c = (a+b)/2;
     fc = f(c);
     if abs(fc) < eps
@@ -35,4 +35,3 @@ function x = regulaFalsi(f, a, b, eps, limit)
 end
 
 % Usage
-regulaFalsi(@(x)(0.5*x*x*x - 5), -100, -10)

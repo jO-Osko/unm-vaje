@@ -20,7 +20,7 @@ function bessel = Ifun(x, to_n, alpha, final, semi_final)
     final = semi_final;
     semi_final = next;
     bessel = [bessel next];
-  endfor
+  end
   bessel = fliplr(bessel)./alpha;
 end
 
