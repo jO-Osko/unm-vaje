@@ -23,3 +23,5 @@ while max(abs(deltax)) > delta & korak < maxsteps
     norm(deltax,'inf')/norm(x0,'inf')));  % izpisemo trenutni priblizek
    norm(deltax);
 end   
+
+y = xn;
