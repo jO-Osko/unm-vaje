@@ -10,35 +10,42 @@ function x = system(N)
   A = [A11 a12
        A21 a22];
        
-  AA = A
+  AA = [A11 a12
+       A21 a22];
   b = 1 + zeros(N*2, 1);
   [Q, Qb, R] = givens(A, b);
   R;
   % Answer
   Q;
   c = Qb;
-  r22 = R(N+1:end, end)
+  r22 = R(N+1:end, end);
   c2 = c(N+1:end)
   size(c2,1);
   % Todo b) part
   
-  X = linspace(0,0.2,10000);
+  X = linspace(0,2,10000);
   Y = zeros(size(X,1));
   for j=1:10000
-    Y(j) = norm(X(j)*r22' - c2);
+    Y(j) = norm(X(j)*r22 - c2);
   end
-  hold on
+  %hold on
   plot(X,Y);
   
   % |a*r - c|; r = d*c + u; <u,c> = 0
+  % not working properly
+  alpha = norm(c2)/dot(c2, r22);
+  norm(alpha*r22 - c2);
   
-  alpha = norm(c2)/dot(r22', c2)
-  norm(alpha*r22' - c2)
+  minimu = fminbnd(@(x) (norm(x*r22 - c2)), 0, 1)
+  norm(minimu*r22 - c2)
   
   % Todo c) part
   % Ax = b
   % Rx = c
   % 3*10 = 30
+  R;
+  c;
+  AA\b
   
   
 end

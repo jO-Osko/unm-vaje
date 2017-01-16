@@ -21,7 +21,7 @@ function ma = interpolation (x, n, N)
     end
   end
   % Answer
-  ma;
+  ma = ma
   
   % For arccos
   y = x;
