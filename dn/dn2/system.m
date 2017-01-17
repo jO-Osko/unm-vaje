@@ -32,12 +32,17 @@ function x = system(N)
   plot(X,Y);
   
   % |a*r - c|; r = d*c + u; <u,c> = 0
-  % not working properly
-  alpha = norm(c2)/dot(c2, r22);
-  norm(alpha*r22 - c2);
+  % used to not working properly, maybe switch c and r
+  alpha = dot(c2, r22)/(norm(r22)^2)
+  norm(alpha*r22 - c2)
+  ddot = dot(alpha*r22 - c2, r22)
+  ddot = dot(alpha*r22 - c2, c2)
   
   minimu = fminbnd(@(x) (norm(x*r22 - c2)), 0, 1)
   norm(minimu*r22 - c2)
+  minimu*r22 - c2
+  ddot = dot(minimu*r22 - c2, r22)
+  ddot = dot(minimu*r22 - c2, c2)
   
   % Todo c) part
   % Ax = b
