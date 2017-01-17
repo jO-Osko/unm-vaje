@@ -1,4 +1,4 @@
-function x = system(N)
+function x = system_e(N)
   if nargin < 1
     N = 10;
   end
@@ -18,8 +18,9 @@ function x = system(N)
   % Answer
   Q;
   c = Qb;
+  
   r22 = R(N+1:end, end);
-  c2 = c(N+1:end)
+  c2 = c(N+1:end);
   size(c2,1);
   % Todo b) part
   
@@ -32,17 +33,20 @@ function x = system(N)
   plot(X,Y);
   
   % |a*r - c|; r = d*c + u; <u,c> = 0
-  % used to not working properly, maybe switch c and r
+  % used to not work properly, maybe switch c and r
+  % Ok now
   alpha = dot(c2, r22)/(norm(r22)^2)
   norm(alpha*r22 - c2)
-  ddot = dot(alpha*r22 - c2, r22)
-  ddot = dot(alpha*r22 - c2, c2)
+  % Answer
+  alpha;
+  %ddot = dot(alpha*r22 - c2, r22)
+  %ddot = dot(alpha*r22 - c2, c2)
   
   minimu = fminbnd(@(x) (norm(x*r22 - c2)), 0, 1)
   norm(minimu*r22 - c2)
-  minimu*r22 - c2
-  ddot = dot(minimu*r22 - c2, r22)
-  ddot = dot(minimu*r22 - c2, c2)
+  %minimu*r22 - c2
+  %ddot = dot(minimu*r22 - c2, r22)
+  %ddot = dot(minimu*r22 - c2, c2)
   
   % Todo c) part
   % Ax = b
@@ -50,7 +54,8 @@ function x = system(N)
   % 3*10 = 30
   R;
   c;
-  AA\b
+  % Answer
+  AA\b;
   
   
 end

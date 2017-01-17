@@ -14,13 +14,13 @@ if nargin<5, maxsteps=50; end
 xn=x0;
 deltax=2*delta*x0+1;
 korak=0;                    						 
-while max(abs(deltax)) > delta & korak < maxsteps
+while max(abs(deltax)) > delta && korak < maxsteps
    korak=korak+1;           						 
    deltax=-JF(xn)\F(xn);
    x0 = xn;
    xn=xn+deltax;
-   disp(sprintf('%3d:  %s %0.1e',korak,sprintf('%15.15f  ',xn),
-    norm(deltax,'inf')/norm(x0,'inf')));  % izpisemo trenutni priblizek
+   %no = max(abs(deltax))
+   disp(sprintf('%3d:  %s %0.1e',korak,sprintf('%15.15f  ',xn), norm(deltax,'inf')/norm(x0,'inf')));  % izpisemo trenutni priblizek
    norm(deltax);
 end   
 

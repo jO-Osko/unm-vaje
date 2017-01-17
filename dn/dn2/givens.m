@@ -7,7 +7,7 @@ function [Q, b, R] = givens(A, b)
   R = A;
   for j=1:n
     for k=j+1:m
-      r = sqrt(R(j,j)**2 + R(k,j)**2);
+      r = sqrt(R(j,j)^2 + R(k,j)^2);
       if r > 0
         c = R(j,j)/r;
         s = R(k,j)/r;

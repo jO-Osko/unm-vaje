@@ -41,13 +41,13 @@ function ma = interpolation (x, n, N)
     xx(end)
     hold on
     plot(t, acos(t));
-    plot(t, polyval(pol_i2, t), "g"); 
+    plot(t, polyval(pol_i2, t), 'g'); 
     hold off
   else  
     t = linspace(0, 50, 1000);
     hold on
     plot(t, cos(f(t)));
-    plot(t, polyval(pol_i, f(t)), "g"); 
+    plot(t, polyval(pol_i, f(t)), 'g'); 
     hold off
   end
 end
